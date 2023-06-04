@@ -1,4 +1,4 @@
-.SILENT: run dev setup open_site
+.SILENT: run dev setup open_site all
 SHELL := /usr/bin/env bash
 IP = 127.0.0.1
 PORT = 8080
@@ -6,6 +6,9 @@ LINK = "$(IP):$(PORT)"
 FULL_LINK = "http://$(LINK)"
 TAB_OPENED_FLAG_FILE = "$(HOME)/.cache/php_tab_opened_flag"
 
+all:
+	$(MAKE) setup
+	$(MAKE) dev
 setup:
 	echo 'Setting up...'
 	mkdir -p logs
